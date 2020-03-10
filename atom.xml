@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://win74.github.io</id>
-    <title>Gridea</title>
-    <updated>2019-05-27T09:38:48.588Z</updated>
+    <title>杂货铺</title>
+    <updated>2020-03-10T15:20:35.262Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://win74.github.io"/>
     <link rel="self" href="https://win74.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://win74.github.io/images/avatar.png</logo>
     <icon>https://win74.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2019, Gridea</rights>
+    <rights>All rights reserved 2020, 杂货铺</rights>
+    <entry>
+        <title type="html"><![CDATA[github+Gridea]]></title>
+        <id>https://win74.github.io/post/githubgridea</id>
+        <link href="https://win74.github.io/post/githubgridea">
+        </link>
+        <updated>2020-03-10T13:55:40.000Z</updated>
+        <content type="html"><![CDATA[<p>https://win74.github.io/</p>
+<p>GitHub Pages 搭建教程  https://sspai.com/post/54608
+https://sspai.com/post/54212</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[这只是一个测试]]></title>
         <id>https://win74.github.io/post/zhe-zhi-shi-yi-ge-ce-shi</id>
