@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | 杂货铺</title>
+<title>wsl+django初体验（二） | 杂货铺</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -91,18 +91,59 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="tags-container">
+          <div class="post-detail">
+            <h2 class="post-title">wsl+django初体验（二）</h2>
+            <div class="post-date">2020-04-29</div>
             
-              <a class="tag" href="https://win74.github.io/tag/4e0I-TiA2/">工具软件</a>
+            <div class="post-content">
+              <p>关键点：<br>
+import sys<br>
+sys.path.append(&quot;..&quot;)<br>
+from jPeople.models import Person</p>
+<p>多数据库(待补充！)<br>
+1.1 数据库表名</p>
+<p>模型类如果未指明表名，Django默认以 小写app应用名_小写模型类名 为数据库表名。</p>
+<p>可通过db_table 指明数据库表名。</p>
+<p>1.2 关于主键</p>
+<p>django会为表创建自动增长的主键列，每个模型只能有一个主键列，如果使用选项设置某属性为主键列后django不会再创建自动增长的主键列。</p>
+<p>默认创建的主键列属性为id，可以使用pk代替，pk全拼为primary key。<br>
+————————————————<br>
+版权声明：本文为CSDN博主「Kungs8」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
+原文链接：https://blog.csdn.net/yanpenggong/article/details/82316514</p>
+<hr>
+<p>postgreSQL Schema:<br>
+'OPTIONS': {<br>
+'options': '-c search_path=zj***'<br>
+},</p>
+<pre><code>    这样，   模型定义中 class Meta():
+    managed = False
+    db_table = 's_model_class'  #不应该加zj***
+
+主键：
+
+最佳答案
+</code></pre>
+<p>您的模型定义没有将任何字段标识为主键，因此Django假设一个名为id的主键列。但是，该列实际上不存在于表中。<br>
+更改模型定义以将其中一个字段指定为主键，Django不会尝试查找id列。<br>
+class_id = models.CharField(max_length=16,primary_key=True)</p>
+
+            </div>
             
-              <a class="tag" href="https://win74.github.io/tag/gridea/">Gridea</a>
             
-              <a class="tag" href="https://win74.github.io/tag/u-M5W3Rz9/">技术</a>
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://win74.github.io/post/wsl-django-chu-ti-yan/">
+                  <h3 class="post-title">
+                    wsl +django 初体验
+                  </h3>
+                </a>
+              </div>
             
-              <a class="tag" href="https://win74.github.io/tag/5rnQ7h9Nr/">他山之石</a>
+
             
+
           </div>
+
         </div>
       </div>
     </div>

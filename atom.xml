@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://win74.github.io</id>
     <title>杂货铺</title>
-    <updated>2020-03-10T15:48:46.516Z</updated>
+    <updated>2020-05-15T02:46:01.164Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://win74.github.io"/>
     <link rel="self" href="https://win74.github.io/atom.xml"/>
@@ -11,13 +11,246 @@
     <icon>https://win74.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 杂货铺</rights>
     <entry>
+        <title type="html"><![CDATA[office 365 自定义安装]]></title>
+        <id>https://win74.github.io/post/office-365-zi-ding-yi-an-zhuang/</id>
+        <link href="https://win74.github.io/post/office-365-zi-ding-yi-an-zhuang/">
+        </link>
+        <updated>2020-05-15T01:14:32.000Z</updated>
+        <content type="html"><![CDATA[<Configuration>
+<p>官网下载office部署工具<br>
+三个XML 和一个setup.exe</p>
+  <Add OfficeClientEdition="64" Channel="Monthly">
+    <Product ID="O365ProPlusRetail">
+      <Language ID="zh-cn" />
+      <ExcludeApp ID="Access" />
+      <ExcludeApp ID="Groove" />
+      <ExcludeApp ID="Lync" />
+      <ExcludeApp ID="Publisher" />
+      <ExcludeApp ID="Outlook" />
+    </Product>
+    <Product ID="VisioProRetail">
+      <Language ID="zh-cn" />      
+    </Product>
+    <Product ID="ProjectProXVolume">
+      <Language ID="zh-cn" />      
+    </Product>    
+  </Add>
+<p>H:\新建文件夹&gt;setup.exe /configure configuration-Office365-x64.xml</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[wsl+django初体验（二）]]></title>
+        <id>https://win74.github.io/post/wsldjango-chu-ti-yan-er/</id>
+        <link href="https://win74.github.io/post/wsldjango-chu-ti-yan-er/">
+        </link>
+        <updated>2020-04-29T12:27:43.000Z</updated>
+        <content type="html"><![CDATA[<p>关键点：<br>
+import sys<br>
+sys.path.append(&quot;..&quot;)<br>
+from jPeople.models import Person</p>
+<p>多数据库(待补充！)<br>
+1.1 数据库表名</p>
+<p>模型类如果未指明表名，Django默认以 小写app应用名_小写模型类名 为数据库表名。</p>
+<p>可通过db_table 指明数据库表名。</p>
+<p>1.2 关于主键</p>
+<p>django会为表创建自动增长的主键列，每个模型只能有一个主键列，如果使用选项设置某属性为主键列后django不会再创建自动增长的主键列。</p>
+<p>默认创建的主键列属性为id，可以使用pk代替，pk全拼为primary key。<br>
+————————————————<br>
+版权声明：本文为CSDN博主「Kungs8」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
+原文链接：https://blog.csdn.net/yanpenggong/article/details/82316514</p>
+<hr>
+<p>postgreSQL Schema:<br>
+'OPTIONS': {<br>
+'options': '-c search_path=zj***'<br>
+},</p>
+<pre><code>    这样，   模型定义中 class Meta():
+    managed = False
+    db_table = 's_model_class'  #不应该加zj***
+
+主键：
+
+最佳答案
+</code></pre>
+<p>您的模型定义没有将任何字段标识为主键，因此Django假设一个名为id的主键列。但是，该列实际上不存在于表中。<br>
+更改模型定义以将其中一个字段指定为主键，Django不会尝试查找id列。<br>
+class_id = models.CharField(max_length=16,primary_key=True)</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[wsl +django 初体验]]></title>
+        <id>https://win74.github.io/post/wsl-django-chu-ti-yan/</id>
+        <link href="https://win74.github.io/post/wsl-django-chu-ti-yan/">
+        </link>
+        <updated>2020-04-27T11:30:59.000Z</updated>
+        <content type="html"><![CDATA[<p>jhz@ThinkPad4jiang:~$ python -V<br>
+Python 2.7.17<br>
+jhz@ThinkPad4jiang:~$ pip install django<br>
+。。。<br>
+Successfully installed django-1.11.29 pytz-2019.3</p>
+<p>jcd /mnt/f/vs-wsl-test/<br>
+jhz@ThinkPad4jiang:/mnt/f/vs-wsl-test$ mkdir mydjango<br>
+jhz@ThinkPad4jiang:/mnt/f/vs-wsl-test$ cd mydjango/<br>
+jhz@ThinkPad4jiang:/mnt/f/vs-wsl-test/mydjango$ django-admin startproject  Jgood<br>
+jhz@ThinkPad4jiang:/mnt/f/vs-wsl-test/mydjango$ cd Jgood/<br>
+jhz@ThinkPad4jiang:/mnt/f/vs-wsl-test/mydjango/Jgood$ ll<br>
+total 4<br>
+drwxrwxrwx 1 jhz jhz 4096 Apr 27 20:15 ./<br>
+drwxrwxrwx 1 jhz jhz 4096 Apr 27 20:09 ../<br>
+drwxrwxrwx 1 jhz jhz 4096 Apr 27 20:15 .vscode/<br>
+drwxrwxrwx 1 jhz jhz 4096 Apr 27 20:15 Jgood/<br>
+-rwxrwxrwx 1 jhz jhz  803 Apr 27 20:09 manage.py*<br>
+jhz@ThinkPad4jiang:/mnt/f/vs-wsl-test/mydjango/Jgood$ python manage.py runserver<br>
+Performing system checks...</p>
+<p>System check identified no issues (0 silenced).</p>
+<p>You have 13 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.<br>
+Run 'python manage.py migrate' to apply them.</p>
+<h2 id="april-27-2020-122346django-version-11129-using-settings-jgoodsettingsstarting-development-server-at-http1270018000quit-the-server-with-control-c27apr2020-122403-get-http11-200-1716not-found-faviconico27apr2020-122404-get-faviconico-http11-404-1961">April 27, 2020 - 12:23:46<br>
+Django version 1.11.29, using settings 'Jgood.settings'<br>
+Starting development server at http://127.0.0.1:8000/<br>
+Quit the server with CONTROL-C.<br>
+[27/Apr/2020 12:24:03] &quot;GET / HTTP/1.1&quot; 200 1716<br>
+Not Found: /favicon.ico<br>
+[27/Apr/2020 12:24:04] &quot;GET /favicon.ico HTTP/1.1&quot; 404 1961</h2>
+<p>django-admin startproject XXXX        //  'XXXX'是项目名称</p>
+<p>4.使用VSCode打开目录 XXXX</p>
+<p>5.在VSCode 的 拓展管理栏（Extensions）中  下载Python（运行Python需要）和Django（提供语法识别、模板补全等功能）</p>
+<p></p>
+<p>6.进入到VSCode调试界面点击添加配置</p>
+<p>6.1<br>
+————————————————<br>
+版权声明：本文为CSDN博主「托比大王」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>
+原文链接：https://blog.csdn.net/lqx930619/article/details/101546365</p>
+<p>DATABASES = {<br>
+'default': {<br>
+'ENGINE': 'django.db.backends.sqlite3',<br>
+'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),<br>
+},<br>
+'pg':{<br>
+'ENGINE': 'django.db.backends.postgresql_psycopg2',<br>
+'OPTIONS': {<br>
+'options': '-c search_path=zjgis'<br>
+},<br>
+'NAME': 'gisdb',<br>
+'USER': 'postgres',<br>
+'PASSWORD': 'postgres',<br>
+'HOST':'172.30.78.74',<br>
+'PORT':'5432',<br>
+}<br>
+}</p>
+<p>python manage.py inspectdb --database pg s_model_class</p>
+<p>from django.db import models</p>
+<h1 id="unable-to-inspect-table-s_model_class">Unable to inspect table 's_model_class'</h1>
+<h1 id="the-error-was-sequence-index-must-be-integer-not-slice">The error was: sequence index must be integer, not 'slice'</h1>
+<p>jhz@ThinkPad4jiang:/mnt/f/vs-wsl-test/mydjango/Jgood$ pip install psycopg2-binary<br>
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support<br>
+Defaulting to user installation because normal site-packages is not writeable<br>
+Looking in indexes: http://pypi.douban.com/simple<br>
+Collecting psycopg2-binary<br>
+Downloading http://pypi.doubanio.com/packages/27/ef/4bf03aedb4251c5d3b7350ec7a56ab8303a5e75a7dd05eab2e2282029676/psycopg2_binary-2.8.5-cp27-cp27mu-manylinux1_x86_64.whl (2.9 MB)<br>
+|████████████████████████████████| 2.9 MB 1.2 MB/s<br>
+Installing collected packages: psycopg2-binary<br>
+Successfully installed psycopg2-binary-2.8.5<br>
+jhz@ThinkPad4jiang:/mnt/f/vs-wsl-test/mydjango/Jgood$ python manage.py inspectdb --database pg s_model_class</p>
+<h1 id="this-is-an-auto-generated-django-model-module">This is an auto-generated Django model module.</h1>
+<h1 id="youll-have-to-do-the-following-manually-to-clean-this-up">You'll have to do the following manually to clean this up:</h1>
+<h1 id="rearrange-models-order">* Rearrange models' order</h1>
+<h1 id="make-sure-each-model-has-one-field-with-primary_keytrue">* Make sure each model has one field with primary_key=True</h1>
+<h1 id="make-sure-each-foreignkey-has-on_delete-set-to-the-desired-behavior">* Make sure each ForeignKey has <code>on_delete</code> set to the desired behavior.</h1>
+<h1 id="remove-managed-false-lines-if-you-wish-to-allow-django-to-create-modify-and-delete-the-table">* Remove <code>managed = False</code> lines if you wish to allow Django to create, modify, and delete the table</h1>
+<h1 id="feel-free-to-rename-the-models-but-dont-rename-db_table-values-or-field-names">Feel free to rename the models, but don't rename db_table values or field names.</h1>
+<p>from <strong>future</strong> import unicode_literals</p>
+<p>from django.db import models</p>
+<p>class SModelClass(models.Model):<br>
+class_id = models.CharField(max_length=16)<br>
+class_name = models.CharField(max_length=32, blank=True, null=True)<br>
+class_desc = models.CharField(max_length=256, blank=True, null=True)<br>
+parent_class_id = models.CharField(max_length=16, blank=True, null=True)<br>
+class_type = models.CharField(max_length=32, blank=True, null=True)<br>
+g_table_name = models.CharField(max_length=64, blank=True, null=True)<br>
+t_table_name = models.CharField(max_length=64, blank=True, null=True)<br>
+domain = models.CharField(max_length=10, blank=True, null=True)<br>
+loc_type = models.CharField(max_length=10, blank=True, null=True)<br>
+type = models.CharField(max_length=10, blank=True, null=True)</p>
+<pre><code>class Meta:
+    managed = False
+    db_table = 's_model_class'
+</code></pre>
+<hr>
+<pre><code>     python manage.py startapp  'sModelClass'
+</code></pre>
+<p>jhz@ThinkPad4jiang:/mnt/f/vs-wsl-test/mydjango/Jgood$ python manage.py inspectdb --database pg s_model_class  &gt; sModelClass/models.py</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[曲奇办公]]></title>
+        <id>https://win74.github.io/post/qu-qi-ban-gong/</id>
+        <link href="https://win74.github.io/post/qu-qi-ban-gong/">
+        </link>
+        <updated>2020-04-12T15:28:26.000Z</updated>
+        <content type="html"><![CDATA[<p>曲奇办公是一款轻便实用的协作办公软件。<br>
+https://quqi.com/<br>
+它是一个团队资料共享云盘，使用它可以把你微信中的附件快速转存到曲奇办公，保存在曲奇办公的文档还能够以链接的形式分享到微信、钉钉，并且可以直接打开预览。</p>
+<p>你和团队的其他人可以为文档添加评论，使用审批功能可以让领导来审批确认文档。上传在云端的文档每次经过修改或者覆盖的版本都会保留，方便随时进行版本对比。</p>
+<p>分享文件的时候可以通过添加动态水印、设定有效期限来进行保密处理。总的来说特别适合几个人共享资料或者协作办公使用。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[TeamViewer]]></title>
+        <id>https://win74.github.io/post/teamviewer/</id>
+        <link href="https://win74.github.io/post/teamviewer/">
+        </link>
+        <updated>2020-04-04T12:21:31.000Z</updated>
+        <content type="html"><![CDATA[<p>账号 xrt190@hotmail.com</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[虚拟机NAT配置]]></title>
+        <id>https://win74.github.io/post/xu-ni-ji-nat-pei-zhi/</id>
+        <link href="https://win74.github.io/post/xu-ni-ji-nat-pei-zhi/">
+        </link>
+        <updated>2020-03-28T06:38:40.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/03/28/XJ8cvZagseR2AMo.png" alt="NAT配置" loading="lazy"></figure>
+<p>记住NAT中的这些参数：子网IP是192.168.44.0、子网掩码是255.255.255.0以及网关IP地址192.168.44.2。</p>
+<p>https://blog.csdn.net/chuanxincui/article/details/80931197</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gridea]]></title>
+        <id>https://win74.github.io/post/gridea/</id>
+        <link href="https://win74.github.io/post/gridea/">
+        </link>
+        <updated>2020-03-23T03:22:42.000Z</updated>
+        <content type="html"><![CDATA[<p>吐槽  不能自动更新 是否提醒要去下载？？</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[腾讯桌面整理工具]]></title>
+        <id>https://win74.github.io/post/teng-xun-zhuo-mian-zheng-li-gong-ju/</id>
+        <link href="https://win74.github.io/post/teng-xun-zhuo-mian-zheng-li-gong-ju/">
+        </link>
+        <updated>2020-03-23T03:17:46.000Z</updated>
+        <content type="html"><![CDATA[<p>https://guanjia.qq.com/product/zmzl/<br>
+下载独立版</p>
+<p>DeskGo_2_9_1051_127_lite.exe</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[消息总线]]></title>
+        <id>https://win74.github.io/post/xiao-xi-zong-xian/</id>
+        <link href="https://win74.github.io/post/xiao-xi-zong-xian/">
+        </link>
+        <updated>2020-03-12T09:57:24.000Z</updated>
+        <content type="html"><![CDATA[<p>https://www.cnblogs.com/mfwtech/p/10448753.html  马蜂窝消息总线——面向业务的消息服务设计</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[github+Gridea]]></title>
-        <id>https://win74.github.io/post/githubgridea</id>
-        <link href="https://win74.github.io/post/githubgridea">
+        <id>https://win74.github.io/post/githubgridea/</id>
+        <link href="https://win74.github.io/post/githubgridea/">
         </link>
         <updated>2020-03-10T13:55:40.000Z</updated>
         <content type="html"><![CDATA[<p>https://win74.github.io/</p>
-<p>GitHub Pages 搭建教程  https://sspai.com/post/54608
+<p>GitHub Pages 搭建教程  https://sspai.com/post/54608<br>
 https://sspai.com/post/54212</p>
 ]]></content>
     </entry>
